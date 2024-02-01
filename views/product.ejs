@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="x, y, ,etc" />
+    <meta name="description" content="x, y, ,etc" />
+    <meta name="author" content="x, y, ,etc" />
+    <title>The North Face | <%= title %></title>
+    <link rel="icon" href="/images/icon.jpg" class="icon" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <%- include("./partials/navbar.ejs") %>
+
+    <section class="pt-3">
+        <div class="container">
+            <div class="row">
+                <% if (products.length >0) { %>
+                    <% products.forEach( product =>{ %>
+                        <% if (productName==product.title) { %>
+                <div class="col-lg-4 col-sm-12">
+                    <img src="<%= product.imgsrc%>" alt="" class="product-image" />
+                </div>
+                <div class="col-lg-8">
+                  
+                                <h2 class="product-title"><%= product.title %></h2>
+                    <h3>Description</h3>
+                    <p>
+                        <%= product.description %>
+                    </p>
+                    <h3>Detalis</h3>
+                    <p>
+                        <%= product.details %>
+                    </p>
+                    <h3>Price <span class="price text-primary"><%= product.price %></span></h3>
+                    <a href="/checkout"><button class="btn btn-dark btn-lg">Buy Now</button></a>
+                </div>
+                <button class="btn btn-primary add-cart fw-bold" style="position: relative">
+                    Add to Cart
+                </button>         
+            </div>
+            <%  }  %>
+
+            <%   }) %>
+
+               <% } %>
+        </div>
+    </section>
+
+    <!-- Similar Products -->
+
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <h2 class="row justify-content-center fw-bold">Similar Products</h2>
+            <div class="row">
+                <% if (products.length > 0) { %>
+                    <% products.forEach(product => { %>
+                      <% if(product.producttype=='bottom' && product.gender=='men') {  %>
+                        <div class="col-lg-3 col-md-3 col-sm-6 productbox p-0">
+                          <a href="product"> <a href="/product/<%=product.title%>"> <img src="<%= product.imgsrc %>"
+                                alt="Jacket 1" class="product-image"></a>
+                            <h2 class="product-title"> <%= product.title %> </h2>
+                            <span class="price"><%= product.price%></span>
+                            <i class="bx bx-shopping-bag add-cart"></i>
+                        </div> 
+                        <% } %>
+                    <% }) %>
+                  <% } else { %>
+                    <p>There are no products to display...</p>
+                  <% } %>
+                
+                  
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <%- include("./partials/footer.ejs") %>
+
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/jquery-3.7.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

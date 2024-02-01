@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="x, y, ,etc" />
+  <meta name="description" content="x, y, ,etc" />
+  <meta name="author" content="x, y, ,etc" />
+  <title>The North Face | <%= title %></title>
+  <link rel="icon" href="/images/icon.jpg" class="icon" />
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <%- include("./partials/navbar.ejs") %>
+
+  <section class="p-5">
+    <div class="container careers-form">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <img src="/images/careers.png" alt="avatar" class="img-fluid">
+        </div>
+        <div class="col-md-6 col-sm-12 mt-5 ">
+          <h3 class="text-center title" data-lan="careers">Careers</h3>
+          <p class="text-center" data-lan="jointeam">Join our team.</p>
+          <form action="/Resumes" method="post">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label" data-lan="namelabel">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Mohamed Salah" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="birthdate" class="form-label" data-lan="datelabel">Birth Date</label>
+                <input type="date" class="form-control" id="birthdate" name="birthdate">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label" data-lan="maillabel">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="mosalah11@icloud.com">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="job" class="form-label" data-lan="jobtype">Job</label>
+                <select class="form-control" name="job" id="job">
+                  <option value="Sales">Sales</option>
+                  <option value="Backoffice">Backoffice</option>
+                  <option value="Quality">Quality</option>
+                </select>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="cv" class="form-label" data-lan="resumeatt">CV</label>
+                <input type="file" name="cv" class="form-control" id="cv">
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="message" class="form-label" data-lan="proposal">Message</label>
+                <textarea class="form-control" name="message" id="message"></textarea>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="buttons text-center">
+                  <a href="/index"><button class="btn btn-primary" data-lan="applynow" id="applycareers">
+                    Send Message
+                  </button></a>
+
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+    <!-- Footer -->
+    <%- include("./partials/footer.ejs") %>
+
+  <!-- Script -->
+  <script src="/bootstrap/js/popper.min.js"></script>
+  <script src="/bootstrap/js/jquery-3.7.1.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>
